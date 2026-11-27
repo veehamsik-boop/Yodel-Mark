@@ -55,9 +55,31 @@
     .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
     .section-heading h2 { margin: 9px 0 0; font-size: clamp(30px, 5vw, 45px); letter-spacing: -.065em; }
     .section-heading p { margin: 0; color: var(--muted); font-size: 13px; }
-    .music { border-bottom: 1px solid var(--line); }
+    .music, .merch { border-bottom: 1px solid var(--line); }
     .track-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .track { min-width: 0; padding: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; transition: border-color .2s, transform .2s; }
+    .merch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .merch-group { min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); overflow: hidden; }
+    .merch-group summary { padding: 10px; cursor: pointer; list-style: none; }
+    .merch-group summary::-webkit-details-marker { display: none; }
+    .merch-group summary img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 5px; background: #222; }
+    .merch-group-title { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 12px 2px 2px; font-size: 15px; font-weight: 800; }
+    .merch-group-meta { display: block; padding: 5px 2px 2px; color: var(--muted); font-size: 12px; }
+    .merch-group summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+    .merch-designs { display: grid; gap: 12px; padding: 0 10px 10px; }
+    .merch-item { min-width: 0; margin: 0; padding: 9px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); }
+    .merch-item img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 5px; background: #222; }
+    .merch-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .merch-view-label { display: block; padding-top: 6px; color: var(--muted); font-size: 11px; text-align: center; }
+    .merch-item figcaption { padding: 10px 2px; font-size: 13px; font-weight: 700; }
+    .merch-order { display: inline-flex; min-height: 36px; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 4px; color: var(--accent); font-size: 12px; font-weight: 800; text-decoration: none; transition: background .2s, border-color .2s; }
+    .merch-order:hover { background: rgba(255,255,255,.08); border-color: var(--accent); }
+    .merch-pay { margin: 0 6px 4px 0; cursor: pointer; font: inherit; }
+    .merch-pay:disabled { opacity: .55; cursor: not-allowed; }
+    .merch-checkout { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 0 0 22px; }
+    .merch-email-field { display: grid; gap: 6px; color: var(--muted); font-size: 12px; }
+    .merch-email-field input { width: min(100%, 320px); min-height: 42px; padding: 0 12px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); background: var(--panel); font: inherit; }
+    .merch-status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    .track { display: block; min-width: 0; padding: 10px; color: inherit; text-decoration: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; transition: border-color .2s, transform .2s; }
     .track:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.45); }
     .track-cover { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 5px; background: #222; }
     .track-details { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 1px 2px; }
@@ -67,6 +89,8 @@
     .track-link:hover { background: rgba(255,255,255,.08); }
     .music-footnote { margin: 17px 0 0; color: var(--muted); font-size: 12px; }
     .live { padding-top: 68px; padding-bottom: 68px; }
+    [hidden] { display: none !important; }
+    .coming-soon { margin: 0; padding: 28px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: var(--panel); font-size: 17px; }
     .live-card { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 28px; border: 1px solid var(--line); border-radius: 9px; background: linear-gradient(110deg, rgba(255,255,255,.06), transparent 65%), var(--panel); }
     .live-event-content { display: flex; align-items: center; gap: 24px; }
     .live-event-image { display: block; width: 160px; height: 160px; flex: 0 0 160px; object-fit: cover; border-radius: 6px; background: #222; }
@@ -78,6 +102,12 @@
     .ticket-type h3 { margin: 0 0 8px; font-size: 17px; }
     .ticket-price { margin: 0 0 7px; color: var(--accent); font-size: 20px; font-weight: 800; }
     .ticket-limit { margin: 0; color: var(--muted); font-size: 12px; }
+    .ticket-checkout { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 20px 0 14px; }
+    .ticket-email-field { display: grid; gap: 6px; color: var(--muted); font-size: 12px; }
+    .ticket-email-field input { width: min(100%, 320px); min-height: 42px; padding: 0 12px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); background: var(--panel); font: inherit; }
+    .ticket-status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    .ticket-pay { margin-top: 16px; cursor: pointer; font: inherit; }
+    .ticket-pay:disabled { opacity: .55; cursor: not-allowed; }
     .booking { background: #171714; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .booking-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
     .booking h2 { margin: 10px 0 15px; font-size: clamp(34px, 6vw, 58px); line-height: .98; letter-spacing: -.07em; }
@@ -100,6 +130,8 @@
       .hero::before { right: -330px; }
       section { padding: 62px 0; }
       .track-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .merch-grid { grid-template-columns: 1fr; }
+      .merch-designs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .booking-grid { grid-template-columns: 1fr; gap: 30px; }
       .ticket-types { grid-template-columns: 1fr; }
       .live-card { align-items: flex-start; flex-direction: column; }
@@ -128,6 +160,7 @@
       <a class="brand" href="#top" aria-label="Yodel Mark home">YODEL MARK<span>.</span></a>
       <div class="nav-links">
         <a href="#music">Music</a>
+        <a href="#merch">Merch</a>
         <a href="#live">Live</a>
         <a href="#booking">Booking</a>
       </div>
@@ -163,12 +196,63 @@
           <p>Find Yodel Mark on UnitedMasters.</p>
         </div>
         <div class="track-list">
-          <article class="track"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795378072586/Screenshot%202026-11-22%2023.06.08.png" alt="Cover art for Empty"><div class="track-details"><div><h3>Empty</h3><div class="track-year">2026</div></div><a class="track-link" href="https://unitedmasters.com/a/yodel-mark" target="_blank" rel="noopener noreferrer" aria-label="Listen to Empty on UnitedMasters">↗</a></div></article>
-          <article class="track"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795378902723/Screenshot%202026-11-22%2023.06.36.png" alt="Cover art for Control"><div class="track-details"><div><h3>Control</h3><div class="track-year">2026</div></div><a class="track-link" href="https://unitedmasters.com/a/yodel-mark" target="_blank" rel="noopener noreferrer" aria-label="Listen to Control on UnitedMasters">↗</a></div></article>
-          <article class="track"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795379068130/Screenshot%202026-11-22%2023.06.56.png" alt="Cover art for A Quiet Call"><div class="track-details"><div><h3>A Quiet Call</h3><div class="track-year">2026</div></div><a class="track-link" href="https://unitedmasters.com/a/yodel-mark" target="_blank" rel="noopener noreferrer" aria-label="Listen to A Quiet Call on UnitedMasters">↗</a></div></article>
-          <article class="track"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795379185836/Screenshot%202026-11-22%2023.07.16.png" alt="Cover art for Endless Ecstasy"><div class="track-details"><div><h3>Endless Ecstasy</h3><div class="track-year">2026</div></div><a class="track-link" href="https://unitedmasters.com/a/yodel-mark" target="_blank" rel="noopener noreferrer" aria-label="Listen to Endless Ecstasy on UnitedMasters">↗</a></div></article>
+          <a class="track" href="https://unitedmasters.com/m/empty-117" target="_blank" rel="noopener noreferrer" aria-label="Listen to Empty on UnitedMasters"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795378072586/Screenshot%202026-11-22%2023.06.08.png" alt="Cover art for Empty"><div class="track-details"><div><h3>Empty</h3><div class="track-year">2026</div></div><span class="track-link" aria-hidden="true">↗</span></div></a>
+          <a class="track" href="https://unitedmasters.com/m/control-186" target="_blank" rel="noopener noreferrer" aria-label="Listen to Control on UnitedMasters"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795378902723/Screenshot%202026-11-22%2023.06.36.png" alt="Cover art for Control"><div class="track-details"><div><h3>Control</h3><div class="track-year">2026</div></div><span class="track-link" aria-hidden="true">↗</span></div></a>
+          <a class="track" href="https://unitedmasters.com/m/a-quiet-call" target="_blank" rel="noopener noreferrer" aria-label="Listen to A Quiet Call on UnitedMasters"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795379068130/Screenshot%202026-11-22%2023.06.56.png" alt="Cover art for A Quiet Call"><div class="track-details"><div><h3>A Quiet Call</h3><div class="track-year">2026</div></div><span class="track-link" aria-hidden="true">↗</span></div></a>
+          <a class="track" href="https://unitedmasters.com/m/endless-ecstasy" target="_blank" rel="noopener noreferrer" aria-label="Listen to Endless Ecstasy on UnitedMasters"><img class="track-cover" src="https://uploads.onecompiler.io/453zzst55/ai-1795379185836/Screenshot%202026-11-22%2023.07.16.png" alt="Cover art for Endless Ecstasy"><div class="track-details"><div><h3>Endless Ecstasy</h3><div class="track-year">2026</div></div><span class="track-link" aria-hidden="true">↗</span></div></a>
         </div>
-        <p class="music-footnote">Track links open Yodel Mark’s UnitedMasters artist page.</p>
+        <p class="music-footnote">Track links open each song on UnitedMasters.</p>
+      </div>
+    </section>
+
+    <section class="merch" id="merch" aria-labelledby="merch-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow">Wear the sound</div><h2 id="merch-title">Official Merch</h2></div>
+          <p>Yodel Mark branded shirts.</p>
+        </div>
+        <div class="merch-checkout">
+          <label class="merch-email-field" for="merch-email">Email for your payment receipt
+            <input id="merch-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+        <div class="merch-grid">
+          <details class="merch-group">
+            <summary>
+              <img src="https://uploads.onecompiler.io/453zzst55/ai-1795517346504/WhatsApp%20Image%202026-11-24%20at%2013.45.42.jpeg" alt="Preview of the Black Yodel Mark shirt">
+              <span class="merch-group-title"><span>Black</span><span aria-hidden="true">＋</span></span>
+              <span class="merch-group-meta">1 design · KSh 1,200</span>
+            </summary>
+            <div class="merch-designs">
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795517346504/WhatsApp%20Image%202026-11-24%20at%2013.45.42.jpeg" alt="Black shirt Design 1, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795533931914/black.jpeg" alt="Black shirt Design 1, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 1 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="Black Design 1" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20Black%20Design%201.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+            </div>
+          </details>
+          <details class="merch-group">
+            <summary>
+              <img src="https://uploads.onecompiler.io/453zzst55/ai-1795517365313/WhatsApp%20Image%202026-11-24%20at%2013.45.43.jpeg" alt="Preview of the White Yodel Mark shirts">
+              <span class="merch-group-title"><span>White</span><span aria-hidden="true">＋</span></span>
+              <span class="merch-group-meta">4 designs · KSh 1,200 each</span>
+            </summary>
+            <div class="merch-designs">
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795517365313/WhatsApp%20Image%202026-11-24%20at%2013.45.43.jpeg" alt="White shirt Design 1, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795533950835/white1.jpeg" alt="White shirt Design 1, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 1 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="White Design 1" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20White%20Design%201.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795517042676/WhatsApp%20Image%202026-11-24%20at%2012.54.44%20(1).jpeg" alt="White shirt Design 2, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795517012542/WhatsApp%20Image%202026-11-24%20at%2012.54.44.jpeg" alt="White shirt Design 2, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 2 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="White Design 2" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20White%20Design%202.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795533963288/white2.jpeg" alt="White shirt Design 3, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795534024935/white5.jpeg" alt="White shirt Design 3, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 3 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="White Design 3" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20White%20Design%203.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795534009936/white4.jpeg" alt="White shirt Design 4, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795533985440/white3.jpeg" alt="White shirt Design 4, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 4 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="White Design 4" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20White%20Design%204.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+            </div>
+          </details>
+          <details class="merch-group">
+            <summary>
+              <img src="https://uploads.onecompiler.io/453zzst55/459yp724g/WhatsApp%20Image%202026-11-24%20at%2012.54.45%20(1).jpeg" alt="Preview of the Grey Yodel Mark shirts">
+              <span class="merch-group-title"><span>Grey</span><span aria-hidden="true">＋</span></span>
+              <span class="merch-group-meta">2 designs · KSh 1,200 each</span>
+            </summary>
+            <div class="merch-designs">
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/459yp724g/WhatsApp%20Image%202026-11-24%20at%2012.54.45%20(1).jpeg" alt="Grey shirt Design 1, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/459yp724g/WhatsApp%20Image%202026-11-24%20at%2012.54.45.jpeg" alt="Grey shirt Design 1, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 1 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="Grey Design 1" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20Grey%20Design%201.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+              <figure class="merch-item"><div class="merch-views"><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795516987972/WhatsApp%20Image%202026-11-24%20at%2012.54.45%20(3).jpeg" alt="Grey shirt Design 2, front view"><span class="merch-view-label">Front</span></div><div><img src="https://uploads.onecompiler.io/453zzst55/ai-1795518132183/WhatsApp%20Image%202026-11-24%20at%2012.54.45%20(4).jpeg" alt="Grey shirt Design 2, back view"><span class="merch-view-label">Back</span></div></div><figcaption>Design 2 · KSh 1,200</figcaption><button class="button primary merch-pay" type="button" data-design="Grey Design 2" data-price="1200">Pay</button><a class="merch-order" href="mailto:caterecords7@gmail.com?subject=Yodel%20Mark%20shirt%20order&amp;body=Hi%2C%20I%27m%20interested%20in%20Grey%20Design%202.%20The%20price%20is%20KSh%201%2C200.%20Please%20let%20me%20know%20the%20available%20sizes.">Order by email <span aria-hidden="true">&nbsp;↗</span></a></figure>
+            </div>
+          </details>
+        </div>
+        <p class="merch-status" id="merch-status" role="status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -177,7 +261,8 @@
         <div class="section-heading">
           <div><div class="eyebrow">Come through</div><h2 id="live-title">Live dates</h2></div>
         </div>
-        <div class="live-card">
+        <p class="coming-soon" id="live-coming-soon" role="status" hidden>More live dates coming soon.</p>
+        <div class="live-card" id="live-event-card">
           <div class="live-event-content">
             <img class="live-event-image" src="https://uploads.onecompiler.io/453zzst55/ai-1795368524746/Screenshot_20261122_202645_TikTok.jpg" alt="Flyer for Yodel Mark’s upcoming event">
             <div><h3>Upcoming event</h3><p>November 27, 2026 · 7:00 AM–2:00 PM<br>Space Nairobi</p></div>
@@ -185,11 +270,17 @@
           <a class="button" href="https://www.instagram.com/yodelmark_gr/" target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">&nbsp;↗</span></a>
         </div>
         <h3 class="ticket-heading" id="nairobi-tickets-title">Tickets for November 27 at Space Nairobi</h3>
-        <div class="ticket-types" aria-labelledby="nairobi-tickets-title">
-          <article class="ticket-type"><h3>Single</h3><p class="ticket-price">KSh 1,500</p><p class="ticket-limit">Limit: 50 tickets</p></article>
-          <article class="ticket-type"><h3>Duo</h3><p class="ticket-price">KSh 2,800</p><p class="ticket-limit">Limit: 10 groups</p></article>
-          <article class="ticket-type"><h3>Trio</h3><p class="ticket-price">KSh 3,900</p><p class="ticket-limit">Limit: 5 groups</p></article>
+        <div class="ticket-checkout" id="ticket-checkout">
+          <label class="ticket-email-field" for="ticket-email">Email for your payment receipt
+            <input id="ticket-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
         </div>
+        <div class="ticket-types" id="ticket-types" aria-labelledby="nairobi-tickets-title">
+          <article class="ticket-type"><h3>Single</h3><p class="ticket-price">KSh 1,500</p><p class="ticket-limit">Limit: <span data-ticket-remaining="Single">50</span> tickets</p><button class="button primary ticket-pay" type="button" data-ticket="Single" data-price="1500">Pay</button></article>
+          <article class="ticket-type"><h3>Duo</h3><p class="ticket-price">KSh 2,800</p><p class="ticket-limit">Limit: <span data-ticket-remaining="Duo">10</span> groups</p><button class="button primary ticket-pay" type="button" data-ticket="Duo" data-price="2800">Pay</button></article>
+          <article class="ticket-type"><h3>Trio</h3><p class="ticket-price">KSh 3,900</p><p class="ticket-limit">Limit: <span data-ticket-remaining="Trio">5</span> groups</p><button class="button primary ticket-pay" type="button" data-ticket="Trio" data-price="3900">Pay</button></article>
+        </div>
+        <p class="ticket-status" id="ticket-status" role="status" aria-live="polite">Payments are processed securely by Paystack. Ticket confirmation follows payment verification.</p>
       </div>
     </section>
 
@@ -212,5 +303,93 @@
   </main>
 
   <footer><div class="wrap"><span>© 2026 Yodel Mark</span><span>Music, moments, and more to come.</span></div></footer>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    const PAYSTACK_PUBLIC_KEY = "pk_live_89f0767e4a9fbfb45cc8378baf35da7ea6db0e21";
+    const ticketEmail = document.getElementById("ticket-email");
+    const ticketStatus = document.getElementById("ticket-status");
+    const merchEmail = document.getElementById("merch-email");
+    const merchStatus = document.getElementById("merch-status");
+
+    const eventDate = "2026-11-27";
+    const nairobiDateParts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Africa/Nairobi",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
+    const nairobiToday = `${nairobiDateParts.find((part) => part.type === "year").value}-${nairobiDateParts.find((part) => part.type === "month").value}-${nairobiDateParts.find((part) => part.type === "day").value}`;
+
+    if (nairobiToday >= eventDate) {
+      document.getElementById("live-event-card").hidden = true;
+      document.getElementById("nairobi-tickets-title").hidden = true;
+      document.getElementById("ticket-checkout").hidden = true;
+      document.getElementById("ticket-types").hidden = true;
+      ticketStatus.hidden = true;
+      document.getElementById("live-coming-soon").hidden = false;
+    }
+
+    document.querySelectorAll(".merch-pay").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!merchEmail.reportValidity()) return;
+        if (PAYSTACK_PUBLIC_KEY.includes("REPLACE_WITH") || !window.PaystackPop) {
+          merchStatus.textContent = "Merch payments are not available right now. Please use the email order option.";
+          return;
+        }
+
+        const reference = `YM-MERCH-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: merchEmail.value.trim(),
+          amount: Number(button.dataset.price) * 100,
+          currency: "KES",
+          ref: reference,
+          label: "Yodel Mark",
+          callback: (response) => {
+            merchStatus.textContent = `Paystack reports success for ${button.dataset.design}. Reference: ${response.reference}. Verify payment before fulfilling the order.`;
+          },
+          onClose: () => {
+            merchStatus.textContent = "Payment window closed. No order has been confirmed.";
+          }
+        });
+
+        handler.openIframe();
+      });
+    });
+
+    document.querySelectorAll(".ticket-pay").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!ticketEmail.reportValidity()) return;
+        if (PAYSTACK_PUBLIC_KEY.includes("REPLACE_WITH") || !window.PaystackPop) {
+          ticketStatus.textContent = "Ticket payments are not set up yet. Please contact us to book.";
+          return;
+        }
+
+        const reference = `YM-TICKET-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: ticketEmail.value.trim(),
+          amount: Number(button.dataset.price) * 100,
+          currency: "KES",
+          ref: reference,
+          label: "Yodel Mark",
+          callback: (response) => {
+            const remainingCount = document.querySelector(`[data-ticket-remaining="${button.dataset.ticket}"]`);
+            if (remainingCount) {
+              const remaining = Math.max(0, Number(remainingCount.textContent) - 1);
+              remainingCount.textContent = remaining;
+              if (remaining === 0) button.disabled = true;
+            }
+            ticketStatus.textContent = `Paystack reports success. Reference: ${response.reference}. Your ticket is confirmed only after payment verification.`;
+          },
+          onClose: () => {
+            ticketStatus.textContent = "Payment window closed. No ticket has been confirmed.";
+          }
+        });
+
+        handler.openIframe();
+      });
+    });
+  </script>
 </body>
 </html>
